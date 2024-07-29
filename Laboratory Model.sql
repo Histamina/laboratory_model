@@ -1,5 +1,5 @@
 # CREATE SCHEMA
-# CREATE SCHEMA laboratory_model;
+CREATE SCHEMA laboratory_model;
 
 # USE MODEL
 
@@ -8,20 +8,20 @@ USE laboratory_model;
 # CREATE TABLES
 
 CREATE TABLE PATIENTS(
-	patient_id INT NOT NULL AUTO_INCREMENT,
+    patient_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     document_type VARCHAR(30) NOT NULL,
     document_number VARCHAR(30) NOT NULL,
     phone VARCHAR(40),
-	exam_id INT,
+    exam_id INT,
     technician_id INT,
     branch_office_id INT,
     PRIMARY KEY(patient_id)
 );
 
 CREATE TABLE EXAMS(
-	exam_id INT NOT NULL AUTO_INCREMENT,
+    exam_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(60) NOT NULL,
     result VARCHAR(70),
     biochemist_id INT,
@@ -31,7 +31,7 @@ CREATE TABLE EXAMS(
 );
 
 CREATE TABLE TECHNICIANS(
-	technician_id INT NOT NULL AUTO_INCREMENT,
+    technician_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     document_type VARCHAR(30) NOT NULL,
@@ -44,19 +44,19 @@ CREATE TABLE TECHNICIANS(
 );
 
 CREATE TABLE BIOCHEMISTS(
-	biochemist_id INT NOT NULL AUTO_INCREMENT,
+    biochemist_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
     document_type VARCHAR(30) NOT NULL,
     document_number VARCHAR(30) NOT NULL,
     phone VARCHAR(40),
-	exam_id INT,
+    exam_id INT,
     branch_office_id INT,
     PRIMARY KEY(biochemist_id)
 );
 
 CREATE TABLE BRANCH_OFFICES(
-	branch_office_id INT NOT NULL AUTO_INCREMENT,
+    branch_office_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(30) NOT NULL,
     address VARCHAR(40) NOT NULL,
     phone VARCHAR(40) NOT NULL,
