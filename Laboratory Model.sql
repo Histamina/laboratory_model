@@ -10,13 +10,13 @@ USE laboratory_model;
 ### CREATE TABLES
 
 CREATE TABLE COUNTRIES(
-	country_id INT NOT NULL AUTO_INCREMENT,
+    country_id INT NOT NULL AUTO_INCREMENT,
     country_name VARCHAR(150) NOT NULL,
     PRIMARY KEY(country_id)
 );
 
 CREATE TABLE PATIENTS(
-	patient_id INT NOT NULL AUTO_INCREMENT,
+    patient_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(60) NOT NULL,
     last_name VARCHAR(60) NOT NULL,
     document_type VARCHAR(30) NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE PATIENTS(
 );
 
 CREATE TABLE BRANCH_OFFICES(
-	branch_office_id INT NOT NULL AUTO_INCREMENT,
+    branch_office_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(70) NOT NULL,
     address VARCHAR(80) NOT NULL,
     phone VARCHAR(40) NOT NULL,
@@ -37,13 +37,13 @@ CREATE TABLE BRANCH_OFFICES(
 );
 
 CREATE TABLE TECHNICIANS(
-	technician_id INT NOT NULL AUTO_INCREMENT,
+    technician_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(60) NOT NULL,
     last_name VARCHAR(60) NOT NULL,
     document_type VARCHAR(30) NOT NULL,
     document_number VARCHAR(50) NOT NULL,
     phone VARCHAR(40),
-	email VARCHAR(50) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     country_id INT NOT NULL,
     branch_office_id INT NOT NULL,
     PRIMARY KEY(technician_id),
@@ -52,7 +52,7 @@ CREATE TABLE TECHNICIANS(
 );
 
 CREATE TABLE ASSISTANCE_RECORDS(
-	assistance_id INT NOT NULL AUTO_INCREMENT,
+    assistance_id INT NOT NULL AUTO_INCREMENT,
     date_time DATETIME NOT NULL,
     patient_id INT NOT NULL,
     technician_id INT NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE ASSISTANCE_RECORDS(
 );
 
 CREATE TABLE BIOCHEMISTS(
-	biochemist_id INT NOT NULL AUTO_INCREMENT,
+    biochemist_id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(60) NOT NULL,
     last_name VARCHAR(60) NOT NULL,
     document_type VARCHAR(30) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE BIOCHEMISTS(
 );
 
 CREATE TABLE EXAM_REFERENCES(
-	exam_reference_id INT NOT NULL AUTO_INCREMENT,
+    exam_reference_id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(150) NOT NULL,
     unit VARCHAR(20) NOT NULL,
     value VARCHAR(300) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE EXAM_REFERENCES(
 );
 
 CREATE TABLE EXAMS(
-	exam_id INT NOT NULL AUTO_INCREMENT,
+    exam_id INT NOT NULL AUTO_INCREMENT,
     result VARCHAR(70) NOT NULL,
     biochemist_id INT NOT NULL,
     technician_id INT NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE EXAMS(
 );
 
 CREATE TABLE PATIENT_VISITS(
-	visit_id INT NOT NULL AUTO_INCREMENT,
+    visit_id INT NOT NULL AUTO_INCREMENT,
     patient_id INT NOT NULL,
     branch_office_id INT NOT NULL,
     PRIMARY KEY(visit_id),
@@ -110,7 +110,7 @@ CREATE TABLE PATIENT_VISITS(
 );
 
 CREATE TABLE AUDIT_NEW_PATIENTS(
-	audit_id INT NOT NULL AUTO_INCREMENT,
+    audit_id INT NOT NULL AUTO_INCREMENT,
     patient_id INT NOT NULL,
     date DATETIME NOT NULL,
     user VARCHAR(100) NOT NULL,
@@ -119,7 +119,7 @@ CREATE TABLE AUDIT_NEW_PATIENTS(
 );
 
 CREATE TABLE AUDIT_REMOVED_PATIENTS(
-	audit_id INT NOT NULL AUTO_INCREMENT,
+    audit_id INT NOT NULL AUTO_INCREMENT,
     patient_id INT NOT NULL,
     date DATETIME NOT NULL,
     user VARCHAR(100) NOT NULL,
@@ -440,7 +440,7 @@ $$
 SELECT staff_by_country('Uruguay') AS total_staff;
 
 
-# CREATE STORE PROCEDURES
+### CREATE STORE PROCEDURES
 
 DROP PROCEDURE IF EXISTS sp_add_reference_exam;
 
@@ -509,7 +509,7 @@ $$
 CALL sp_qty_assistances_by_field('date_time');
 
 
-# CREATE TRIGGERS
+### CREATE TRIGGERS
 
 DROP TRIGGER IF EXISTS `tr_audit_new_patient`;
 
