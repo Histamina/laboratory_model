@@ -790,4 +790,4 @@ BEGIN
 END
 $$
 
-CALL sp_most_profitable_exam('2024-04-01 00:00:00', '2024-04-30 23:59:59');
+CALL sp_most_profitable_exam('2024-07-01 00:00:00', '2024-07-30 23:59:59');
